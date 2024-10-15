@@ -1,6 +1,6 @@
 const { createProduct,
  } 
-= require('../controllers/organization.controller');
+= require('../controllers/product.controller');
 
 const { authenticate } = require('../config/jwt.config');
 const { checkPermissions } = require('../config/jwt.config');

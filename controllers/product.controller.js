@@ -1,10 +1,4 @@
 const Product = require("../models/product.model");
-const Category = require("../models/category.model");
-const Store = require("../models/store.model");
-const Brand = require("../models/brand.model");
-const remove = require("../utils/remove.util");
-const Review = require("../models/review.model");
-const User = require("../models/user.model");
 
 
 
