@@ -11,15 +11,15 @@ const UserSchema = new mongoose.Schema(
 
     email: {
       type: String,
-      required: [true, "Please, provide your email address"],
-      validate: [validator.isEmail, "Provide a valid email address"],
+    //  required: [true, "Please, provide your email address"],
+   //   validate: [validator.isEmail, "Provide a valid email address"],
       unique: [true, "Email already exist. Please, provide new"],
     },
 
     password: {
       type: String,
       required: [true, "Please, provide a strong password"],
-      validate: {
+   /*   validate: {
         validator: (value) =>
           validator.isStrongPassword(value, {
             minUppercase: 1,
@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema(
           "Password {VALUE} should contain minimum 1 => uppercase, lowercase, number and symbol",
       },
       minLength: [8, "Password should be at least 8 characters"],
-      maxLength: [20, "Password should be at most 20 characters"],
+      maxLength: [20, "Password should be at most 20 characters"],*/
     },
 
     image: {
@@ -50,12 +50,12 @@ const UserSchema = new mongoose.Schema(
         true,
         "Please, provide your phone number, i.e.: +8801xxxxxxxxx",
       ],
-      validate: {
+    /*  validate: {
         validator: (value) =>
           validator.isMobilePhone(value, "any", { strictMode: true }),
         message:
           "Phone number {VALUE} is not valid. Please, retry like +8801xxxxxxxxx",
-      },
+      }, */
       unique: true,
     },
 

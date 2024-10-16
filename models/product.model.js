@@ -1,21 +1,28 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const productSchema = new mongoose.Schema(
+const ProductSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "Please, provide a product title"],
+   /*   required: [true, "Please, provide a product title"],
       trim: true,
       unique: [true, "Same product already exists"],
-      maxLength: [100, "Your title would be at most 100 characters"],
+      maxLength: [100, "Your title would be at most 100 characters"],*/
     },
 
     summary: {
       type: String,
-      required: [true, "Please, provide product summary"],
+     /* required: [true, "Please, provide product summary"],
       trim: true,
-      maxLength: [500, "Your summary would be at most 500 characters"],
+      maxLength: [500, "Your summary would be at most 500 characters"],*/
+    },
+
+    image: {
+      type: String,
+     /* required: [true, "Please, provide product summary"],
+      trim: true,
+      maxLength: [500, "Your summary would be at most 500 characters"],*/
     },
 
     certified: {
@@ -25,23 +32,33 @@ const productSchema = new mongoose.Schema(
     // for price
     price: {
       type: Number,
-      required: [true, "Please, provide a product price"],
+      //required: [true, "Please, provide a product price"],
     },
 
   // for address
   address: {
     type: String,
-    default: "N/A",
+  /*  default: "N/A",
     trim: true,
-    maxLength: [500, "Your address would be at most 500 characters"],
+    maxLength: [500, "Your address would be at most 500 characters"],*/
+  },
+
+  category: {
+    type: String,
   },
 
     // for category
-    category: {
+  /*  category: {
       type: mongoose.Schema.Types.ObjectId, 
       ref: "Category",
-    },
+    },*/
 
+
+    // for user "seller"
+    seller: { // many to one
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "User",
+    }, 
 
     // for store
     store: {
@@ -70,7 +87,10 @@ const productSchema = new mongoose.Schema(
 );
 
 /* create product schema */
-const Product = mongoose.model("Product", productSchema);
+const ProductModel = mongoose.model("Product", ProductSchema);
 
 /* export product schema */
-module.exports = Product;
+module.exports = ProductModel;
+
+
+

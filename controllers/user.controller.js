@@ -6,6 +6,7 @@ const UserModel = require("../models/user.model");
 module.exports = {
   register: async (req, res) => { // user connect automaticly after registration
     try {
+      console.log("55555",req.body)
       // Create the newUser using await
       const newUser = await UserModel.create(req.body);
 
@@ -32,6 +33,7 @@ module.exports = {
   },
 
   login: async (req, res) => {
+    console.log("55555",req.body)
     const user = await UserModel.findOne({ email: req.body.email });
     if (user === null) {
       return res.status(400).json({ message: "user is not exist" });

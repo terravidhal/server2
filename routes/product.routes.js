@@ -1,4 +1,5 @@
 const { createProduct,
+    getProductsBy
  } 
 = require('../controllers/product.controller');
 
@@ -8,6 +9,7 @@ const { checkPermissions } = require('../config/jwt.config');
 
 module.exports = app => {
 app.post('/product/create', authenticate, createProduct);  
+app.get('/product/get', authenticate, getProductsBy);  
 }
 
 
